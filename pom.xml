@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <groupId>com.lyq3.applet</groupId>
+    <artifactId>springcloud-applet</artifactId>
+    <version>1.0-SNAPSHOT</version>
+
+    <modules>
+        <module>applet-common</module>
+        <module>applet-config</module>
+        <module>applet-eureka</module>
+        <module>applet-gateway</module>
+        <module>applet-module</module>
+        <module>applet-sso</module>
+    </modules>
+    
+</project>
