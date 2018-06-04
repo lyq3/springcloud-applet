@@ -15,6 +15,13 @@
         <version>0.0.9</version>
     </parent>
 
+    <dependencies>
+        <dependency>
+            <groupId>org.springframework.cloud</groupId>
+            <artifactId>spring-cloud-starter-eureka-server</artifactId>
+        </dependency>
+    </dependencies>
+
     <build>
         <finalName>applet-eureka</finalName>
         <plugins>
