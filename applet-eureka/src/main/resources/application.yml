@@ -2,8 +2,16 @@ spring:
   application:
     name:
       eureka-server
+
 server:
   port: 1001
+
+security:
+  basic:
+    enabled: true # 启用身份认证
+  user:
+    name: lyq3 # 定义用户名
+    password: 123456 # 定义密码
 
 eureka:
   instance:
