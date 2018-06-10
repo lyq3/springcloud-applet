@@ -2,23 +2,14 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0"
          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
-    <modelVersion>4.0.0</modelVersion>
-
-    <groupId>com.lyq3.applet</groupId>
-    <artifactId>applet-sso</artifactId>
-    <packaging>pom</packaging>
-    <version>${applet.version}</version>
-
     <parent>
+        <artifactId>applet-sso</artifactId>
         <groupId>com.lyq3.applet</groupId>
-        <artifactId>springcloud-applet</artifactId>
         <version>${applet.version}</version>
     </parent>
+    <modelVersion>4.0.0</modelVersion>
 
-    <modules>
-        <module>applet-sso-client</module>
-        <module>applet-sso-server</module>
-    </modules>
+    <artifactId>applet-sso-client</artifactId>
 
 
 </project>
