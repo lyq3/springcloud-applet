@@ -18,7 +18,9 @@
     <modules>
         <module>applet-sso-client</module>
         <module>applet-sso-server</module>
+        <module>applet-sso-common</module>
     </modules>
+
 
 
 </project>
