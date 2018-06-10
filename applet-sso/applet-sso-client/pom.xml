@@ -31,11 +31,13 @@
         <dependency>
             <groupId>com.alibaba</groupId>
             <artifactId>druid-spring-boot-starter</artifactId>
+            <version>${druid.version}</version>
         </dependency>
         <!--fastJSON-->
         <dependency>
             <groupId>com.alibaba</groupId>
             <artifactId>fastjson</artifactId>
+            <version>${fastjson.version}</version>
         </dependency>
     </dependencies>
 
