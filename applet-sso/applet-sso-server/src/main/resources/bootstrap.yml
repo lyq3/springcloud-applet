@@ -1,0 +1,16 @@
+spring:
+  application:
+    name: applet-sso-server
+  profiles:
+    active: dev
+  cloud:
+    config:
+      uri: http://localhost:1201/
+      discovery:
+          service-id: pig-config-server
+          enabled: true
+      profile: ${spring.profiles.active}
+      label: ${spring.profiles.active}
+
+server:
+  port: 2001
