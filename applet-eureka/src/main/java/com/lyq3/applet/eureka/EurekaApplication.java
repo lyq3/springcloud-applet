@@ -6,7 +6,6 @@ import org.springframework.cloud.netflix.eureka.server.EnableEurekaServer;
 
 /**
  * 注册中心启动类
- *
  * @author 卡卢比
  */
 @EnableEurekaServer
