@@ -5,12 +5,14 @@ spring:
     active: dev
   cloud:
     config:
-      uri: http://localhost:1201/
+      uri: http://localhost:1201
+      fail-fast: true
       discovery:
-          service-id: pig-config-server
-          enabled: true
+        service-id: config-server
+        enabled: true
       profile: ${spring.profiles.active}
       label: ${spring.profiles.active}
-
-server:
-  port: 2001
+eureka:
+      client:
+        serviceUrl:
+          defaultZone: http://localhost:1001/eureka/
