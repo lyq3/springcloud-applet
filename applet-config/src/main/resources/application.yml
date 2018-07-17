@@ -9,7 +9,7 @@ spring:
       server:
         git:
           uri: https://github.com/lyq3/springcloud-applet-config.git
-          search-paths: /{label}
+          search-paths: /{application}
 eureka:
   client:
     serviceUrl:
