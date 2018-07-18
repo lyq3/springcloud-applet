@@ -1,3 +1,6 @@
+server:
+  port: 8001
+
 spring:
   application:
     name: applet-sso-server
@@ -14,4 +17,5 @@ spring:
 eureka:
       client:
         serviceUrl:
-          defaultZone: http://localhost:1001/eureka/,http://localhost:1002/eureka/
+          defaultZone: http://localhost:1001/eureka/
+
