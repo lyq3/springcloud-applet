@@ -1,6 +1,6 @@
 package com.lyq3.applet.sso.server.test.mapper;
 
-import com.lyq3.applet.sso.server.entity.po.User;
+import com.lyq3.applet.sso.common.entity.po.User;
 import com.lyq3.applet.sso.server.mapper.UserMapper;
 import com.lyq3.applet.sso.server.test.BaseTest;
 import org.junit.Test;

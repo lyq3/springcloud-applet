@@ -1,8 +1,7 @@
 package com.lyq3.applet.sso.server.mapper;
 
-import com.lyq3.applet.sso.server.entity.po.User;
+import com.lyq3.applet.sso.common.entity.po.User;
 import com.baomidou.mybatisplus.mapper.BaseMapper;
-import org.springframework.stereotype.Repository;
 
 /**
  * <p>

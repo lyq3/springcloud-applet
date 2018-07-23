@@ -11,7 +11,7 @@ public class Generator {
     //作者
     private static String AUTHOR = "卡卢比";
     //包名
-    private static String PACKAGENAME = "com.lyq3.applet.sso.server.entity";
+    private static String PACKAGENAME = "com.lyq3.applet.sso.common.entity";
 
 
     public static void main(String[] arg) {

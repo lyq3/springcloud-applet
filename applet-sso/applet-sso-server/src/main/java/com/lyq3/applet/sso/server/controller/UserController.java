@@ -1,6 +1,6 @@
 package com.lyq3.applet.sso.server.controller;
 
-import com.lyq3.applet.sso.server.entity.po.User;
+import com.lyq3.applet.sso.common.entity.po.User;
 import com.lyq3.applet.sso.server.mapper.UserMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;

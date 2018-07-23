@@ -1,4 +1,4 @@
-package com.lyq3.applet.sso.server.entity.po;
+package com.lyq3.applet.sso.common.entity.po;
 
 import com.baomidou.mybatisplus.enums.IdType;
 import java.util.Date;
