@@ -18,5 +18,5 @@ public interface UserService {
      * 登录存Redis
      * @param user
      */
-    String doLogin(User user);
+    String doLogin(User user,String backUrl);
 }

@@ -69,12 +69,12 @@ public class LoginController {
         }
 
         //登录->存Redis
-        String sessionId = userService.doLogin(user);
+        String sessionId = userService.doLogin(user,backUrl);
 
         if (StringUtils.isNotEmpty(backUrl)) {
            return "redirect:" + backUrl + "?token=" + sessionId;
         }
-       return "/";
+       return "redirect:/";
     }
 
     /**
