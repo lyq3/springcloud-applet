@@ -3,6 +3,7 @@ package com.lyq3.applet.sso.server.service.impl;
 import com.lyq3.applet.sso.common.constant.RedisConstant;
 import com.lyq3.applet.sso.common.entity.po.User;
 import com.lyq3.applet.sso.common.entity.vo.LoginSession;
+import com.lyq3.applet.sso.common.util.LoginUtil;
 import com.lyq3.applet.sso.server.mapper.UserMapper;
 import com.lyq3.applet.sso.server.service.UserService;
 import org.apache.commons.lang.StringUtils;
@@ -32,13 +33,14 @@ public class UserServiceImpl implements UserService {
     @Override
     public String doLogin(User user,String backUrl) {
         //存到redis的key
-        String sessionId =RedisConstant.SSO_SESSIONID + "#" + UUID.randomUUID().toString();
+        String uuid = UUID.randomUUID().toString();
+        String sessionId = LoginUtil.getLoginKey(uuid);
         //存储的数据
         LoginSession session = new LoginSession();
         session.setUser(user);
         session.setBackUrl(backUrl);
         //30分钟过期
         redisTemplate.opsForValue().set(sessionId,session,30, TimeUnit.MINUTES);
-        return sessionId;
+        return uuid;
     }
 }
