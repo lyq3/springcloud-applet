@@ -9,6 +9,7 @@ import com.lyq3.applet.sso.server.service.UserService;
 import org.apache.commons.lang.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.redis.core.RedisTemplate;
+import org.springframework.stereotype.Service;
 
 import java.util.UUID;
 import java.util.concurrent.TimeUnit;
@@ -18,6 +19,7 @@ import java.util.concurrent.TimeUnit;
  * @createTime 2018年07月24日 21:44
  * @description UserService实现类
  */
+@Service
 public class UserServiceImpl implements UserService {
     @Autowired
     private UserMapper userMapper;
