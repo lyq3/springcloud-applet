@@ -22,6 +22,12 @@
     </modules>
 
     <dependencies>
+        <!--common-->
+        <dependency>
+            <groupId>com.lyq3.applet</groupId>
+            <artifactId>applet-common</artifactId>
+            <version>1.0-SNAPSHOT</version>
+        </dependency>
         <!--配置中心客户端-->
         <dependency>
             <groupId>org.springframework.cloud</groupId>
