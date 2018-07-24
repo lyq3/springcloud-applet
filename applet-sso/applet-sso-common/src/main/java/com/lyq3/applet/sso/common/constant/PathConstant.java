@@ -7,8 +7,10 @@ package com.lyq3.applet.sso.common.constant;
  */
 public class PathConstant {
     /**注销登录地址*/
-    private static final String LOGOUT_URL = "/sso/logout";
+    public static final String LOGOUT_URL = "/sso/logout";
     /**登录地址*/
-    private static final String LOGIN_URL = "/sso/login";
+    public static final String LOGIN_URL = "/sso/page/login";
+    /**请求登录API*/
+    public static final String DO_LOGIN_URL = "/sso/login";
 
 }
