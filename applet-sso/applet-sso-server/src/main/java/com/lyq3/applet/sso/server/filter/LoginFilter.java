@@ -1,6 +1,7 @@
 package com.lyq3.applet.sso.server.filter;
 
 import com.lyq3.applet.sso.common.constant.PathConstant;
+import com.lyq3.applet.sso.common.constant.SysConstant;
 import com.lyq3.applet.sso.common.util.LoginUtil;
 import org.apache.commons.lang.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -31,9 +32,9 @@ public class LoginFilter implements Filter {
         HttpServletRequest req = (HttpServletRequest) servletRequest;
         HttpServletResponse res = (HttpServletResponse)servletResponse;
         String uri = req.getRequestURI();
-        String token = req.getParameter("token");
+        String token = req.getParameter(SysConstant.TOKEN_NAME);
         if (StringUtils.isEmpty(token)){
-            token = req.getHeader("token");
+            token = req.getHeader(SysConstant.TOKEN_NAME);
         }
 
         //注销请求、登陆请求、登陆页面放行
