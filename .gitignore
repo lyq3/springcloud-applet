@@ -44,3 +44,5 @@ selenium-debug.log
 *.sln
 *.cache
 *.lock
+
+applet-config/
