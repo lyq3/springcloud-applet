@@ -8,4 +8,6 @@ package com.lyq3.applet.sso.common.constant;
 public class SysConstant {
     /**token的名字（传递过程中）*/
     public static final String TOKEN_NAME = "token";
+    /**登录回调地址参数名*/
+    public static final String BACKURL = "backUrl";
 }

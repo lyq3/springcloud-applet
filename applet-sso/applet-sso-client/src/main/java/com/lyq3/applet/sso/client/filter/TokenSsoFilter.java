@@ -2,6 +2,7 @@ package com.lyq3.applet.sso.client.filter;
 
 import com.lyq3.applet.common.pojo.Result;
 import com.lyq3.applet.sso.client.sso.SsoRestClient;
+import com.lyq3.applet.sso.common.constant.PathConstant;
 import com.lyq3.applet.sso.common.constant.SysConstant;
 import com.lyq3.applet.sso.common.entity.vo.LoginSession;
 import com.lyq3.applet.sso.common.util.LoginUtil;
@@ -37,7 +38,6 @@ public class TokenSsoFilter implements Filter {
         HttpServletRequest req = (HttpServletRequest) servletRequest;
         HttpServletResponse res = (HttpServletResponse)servletResponse;
         HttpSession session = req.getSession();
-        String uri = req.getRequestURI();
         String url = req.getRequestURL().toString();
 
         //获取Token
@@ -47,14 +47,14 @@ public class TokenSsoFilter implements Filter {
         }
 
         if (StringUtils.isEmpty(token)) {
-            res.sendRedirect(SsoServerUrl + "/sso/page/login?backUrl=" + url);
+            res.sendRedirect(SsoServerUrl + PathConstant.LOGIN_URL+"?"+SysConstant.BACKURL+"=" + url);
             return;
         }
         //验证Token是否有效
         Result<LoginSession> result = ssoClient.check(token);
         //无效跳转登录页面
         if (result == null || result.getData() == null) {
-            res.sendRedirect(SsoServerUrl + "/sso/page/login?backUrl=" + url);
+            res.sendRedirect(SsoServerUrl + PathConstant.LOGIN_URL+ "?"+SysConstant.BACKURL+"=" + url);
             return;
         }
         //有效则登录

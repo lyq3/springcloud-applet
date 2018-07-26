@@ -3,6 +3,7 @@ package com.lyq3.applet.sso.server.controller;
 import com.lyq3.applet.common.exception.BizException;
 import com.lyq3.applet.common.exception.BizExceptionEnum;
 import com.lyq3.applet.common.pojo.Result;
+import com.lyq3.applet.sso.common.constant.SysConstant;
 import com.lyq3.applet.sso.common.entity.po.User;
 import com.lyq3.applet.sso.common.entity.vo.LoginSession;
 import com.lyq3.applet.sso.server.service.UserService;
@@ -49,7 +50,7 @@ public class LoginController {
     public String doLogin(){
         String username = request.getParameter("username");
         String password = request.getParameter("password");
-        String backUrl = request.getParameter("backUrl");
+        String backUrl = request.getParameter(SysConstant.BACKURL);
 
         if (StringUtils.isEmpty(username) || StringUtils.isEmpty(password)) {
             throw new BizException(BizExceptionEnum.LOGIN_USERNAME_ISNULL);
@@ -73,7 +74,7 @@ public class LoginController {
         String sessionId = userService.doLogin(user,backUrl);
 
         if (StringUtils.isNotEmpty(backUrl)) {
-           return "redirect:" + backUrl + "?token=" + sessionId;
+           return "redirect:" + backUrl + "?"+SysConstant.TOKEN_NAME +"=" + sessionId;
         }
        return "redirect:/";
     }
