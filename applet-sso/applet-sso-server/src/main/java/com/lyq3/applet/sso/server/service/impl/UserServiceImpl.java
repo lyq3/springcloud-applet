@@ -1,12 +1,10 @@
 package com.lyq3.applet.sso.server.service.impl;
 
-import com.lyq3.applet.sso.common.constant.RedisConstant;
 import com.lyq3.applet.sso.common.entity.po.User;
 import com.lyq3.applet.sso.common.entity.vo.LoginSession;
 import com.lyq3.applet.sso.common.util.LoginUtil;
 import com.lyq3.applet.sso.server.mapper.UserMapper;
 import com.lyq3.applet.sso.server.service.UserService;
-import org.apache.commons.lang.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.stereotype.Service;
@@ -44,5 +42,16 @@ public class UserServiceImpl implements UserService {
         //30分钟过期
         redisTemplate.opsForValue().set(sessionId,session,30, TimeUnit.MINUTES);
         return uuid;
+    }
+
+    @Override
+    public LoginSession checkToken(String token) {
+        String key = LoginUtil.getLoginKey(token);
+        Object obj = redisTemplate.opsForValue().get(key);
+        if (obj != null) {
+            return (LoginSession)obj;
+        }
+
+        return null;
     }
 }

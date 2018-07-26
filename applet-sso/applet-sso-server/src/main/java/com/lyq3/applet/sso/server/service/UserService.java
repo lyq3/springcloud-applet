@@ -1,6 +1,7 @@
 package com.lyq3.applet.sso.server.service;
 
 import com.lyq3.applet.sso.common.entity.po.User;
+import com.lyq3.applet.sso.common.entity.vo.LoginSession;
 
 /**
  * 用户Service
@@ -19,4 +20,11 @@ public interface UserService {
      * @param user
      */
     String doLogin(User user,String backUrl);
+
+    /**
+     * 检查Token有效性
+     * @param token
+     * @return
+     */
+    LoginSession checkToken(String token);
 }

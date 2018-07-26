@@ -32,6 +32,7 @@ public class LoginFilter implements Filter {
         HttpServletRequest req = (HttpServletRequest) servletRequest;
         HttpServletResponse res = (HttpServletResponse)servletResponse;
         String uri = req.getRequestURI();
+
         String token = req.getParameter(SysConstant.TOKEN_NAME);
         if (StringUtils.isEmpty(token)){
             token = req.getHeader(SysConstant.TOKEN_NAME);
@@ -53,8 +54,6 @@ public class LoginFilter implements Filter {
 
         //其他请求跳转到登录页面
         res.sendRedirect(PathConstant.LOGIN_URL);
-
-
 
     }
 

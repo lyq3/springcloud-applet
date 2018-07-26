@@ -12,26 +12,11 @@
     <artifactId>applet-sso-client</artifactId>
 
     <dependencies>
-        <!--Redis-->
+        <!--sso-common-->
         <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-data-redis</artifactId>
-        </dependency>
-        <!--数据库相关-->
-        <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-jdbc</artifactId>
-        </dependency>
-        <dependency>
-            <groupId>mysql</groupId>
-            <artifactId>mysql-connector-java</artifactId>
-        </dependency>
-
-        <!-- druid -->
-        <dependency>
-            <groupId>com.alibaba</groupId>
-            <artifactId>druid-spring-boot-starter</artifactId>
-            <version>${druid.version}</version>
+            <groupId>com.lyq3.applet</groupId>
+            <artifactId>applet-sso-common</artifactId>
+            <version>${applet.version}</version>
         </dependency>
         <!--fastJSON-->
         <dependency>

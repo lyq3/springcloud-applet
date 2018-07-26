@@ -4,6 +4,7 @@ import com.lyq3.applet.common.exception.BizException;
 import com.lyq3.applet.common.exception.BizExceptionEnum;
 import com.lyq3.applet.common.pojo.Result;
 import com.lyq3.applet.sso.common.entity.po.User;
+import com.lyq3.applet.sso.common.entity.vo.LoginSession;
 import com.lyq3.applet.sso.server.service.UserService;
 import org.apache.commons.codec.digest.DigestUtils;
 import org.apache.commons.lang.StringUtils;
@@ -36,7 +37,7 @@ public class LoginController {
      * @return
      */
     @GetMapping("/page/login")
-    public String login () {
+    public String login (String backUrl) {
         return "";
     }
 
@@ -85,5 +86,16 @@ public class LoginController {
     @ResponseBody
     public Result logout(){
         return Result.success();
+    }
+
+    /**
+     * 检查Token是否有效
+     * @return
+     */
+    @GetMapping("/check")
+    @ResponseBody
+    public Result checkToken(String token) {
+        LoginSession isValid = userService.checkToken(token);
+        return Result.success(isValid);
     }
 }
