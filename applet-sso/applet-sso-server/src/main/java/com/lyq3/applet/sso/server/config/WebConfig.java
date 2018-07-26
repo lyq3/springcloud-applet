@@ -19,9 +19,12 @@ public class WebConfig {
     @Bean
     public FilterRegistrationBean testFilterRegistration() {
         FilterRegistrationBean registration = new FilterRegistrationBean();
-        registration.setFilter(loginFilter);//添加过滤器
-        registration.addUrlPatterns("/*");//设置过滤路径，/*所有路径
-        registration.setOrder(1);//设置优先级
+        //添加过滤器
+        registration.setFilter(loginFilter);
+        //设置过滤路径，/*所有路径
+        registration.addUrlPatterns("/*");
+        //设置优先级
+        registration.setOrder(1);
         return registration;
     }
 
