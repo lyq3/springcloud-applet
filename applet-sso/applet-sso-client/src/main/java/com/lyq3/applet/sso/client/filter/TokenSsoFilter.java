@@ -8,6 +8,7 @@ import com.lyq3.applet.sso.common.util.LoginUtil;
 import org.apache.commons.lang.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
+import org.springframework.stereotype.Component;
 
 import javax.servlet.*;
 import javax.servlet.http.HttpServletRequest;
@@ -20,6 +21,7 @@ import java.io.IOException;
  * @createTime 2018年07月26日 20:18
  * @description 单点登录拦截Token的Filter
  */
+@Component
 public class TokenSsoFilter implements Filter {
     @Autowired
     private SsoRestClient ssoClient;
@@ -46,12 +48,14 @@ public class TokenSsoFilter implements Filter {
 
         if (StringUtils.isEmpty(token)) {
             res.sendRedirect(SsoServerUrl + "/sso/page/login?backUrl=" + url);
+            return;
         }
         //验证Token是否有效
         Result<LoginSession> result = ssoClient.check(token);
         //无效跳转登录页面
         if (result == null || result.getData() == null) {
             res.sendRedirect(SsoServerUrl + "/sso/page/login?backUrl=" + url);
+            return;
         }
         //有效则登录
         LoginSession loginSession = result.getData();

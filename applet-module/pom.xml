@@ -8,11 +8,71 @@
     <artifactId>applet-module</artifactId>
     <packaging>pom</packaging>
     <version>${applet.version}</version>
+
     <modules>
         <module>applet-pay</module>
         <module>applet-user-center</module>
         <module>applet-shopping-cart</module>
     </modules>
+
+    <parent>
+        <groupId>com.lyq3.applet</groupId>
+        <artifactId>springcloud-applet</artifactId>
+        <version>${applet.version}</version>
+    </parent>
+
+    <dependencies>
+        <!--common-->
+        <dependency>
+            <groupId>com.lyq3.applet</groupId>
+            <artifactId>applet-common</artifactId>
+            <version>1.0-SNAPSHOT</version>
+        </dependency>
+        <!--配置中心客户端-->
+        <dependency>
+            <groupId>org.springframework.cloud</groupId>
+            <artifactId>spring-cloud-starter-config</artifactId>
+        </dependency>
+        <!--Redis-->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-data-redis</artifactId>
+        </dependency>
+        <!--数据库相关-->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-jdbc</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>mysql</groupId>
+            <artifactId>mysql-connector-java</artifactId>
+        </dependency>
+        <!--Mybatis-Plus-->
+        <dependency>
+            <groupId>com.baomidou</groupId>
+            <artifactId>mybatis-plus-boot-starter</artifactId>
+            <version>${mybatis-plus.version}</version>
+        </dependency>
+
+        <!-- druid -->
+        <dependency>
+            <groupId>com.alibaba</groupId>
+            <artifactId>druid-spring-boot-starter</artifactId>
+            <version>${druid.version}</version>
+        </dependency>
+        <!--fastJSON-->
+        <dependency>
+            <groupId>com.alibaba</groupId>
+            <artifactId>fastjson</artifactId>
+            <version>${fastjson.version}</version>
+        </dependency>
+        <!--JWT-->
+        <dependency>
+            <groupId>io.jsonwebtoken</groupId>
+            <artifactId>jjwt</artifactId>
+            <version>${jjwt.version}</version>
+        </dependency>
+    </dependencies>
 
 
 </project>

@@ -15,6 +15,7 @@ import org.springframework.cloud.config.server.EnableConfigServer;
 public class ConfigApplication {
     public static void main(String[] args) {
         new SpringApplicationBuilder(ConfigApplication.class).web(true).run(args);
+        System.out.println("===配置中心启动成功===\n");
     }
 
 }
