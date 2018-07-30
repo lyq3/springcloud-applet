@@ -6,6 +6,7 @@ import com.lyq3.applet.common.pojo.Result;
 import com.lyq3.applet.sso.common.constant.SysConstant;
 import com.lyq3.applet.sso.common.entity.po.User;
 import com.lyq3.applet.sso.common.entity.vo.LoginSession;
+import com.lyq3.applet.sso.server.service.LoginService;
 import com.lyq3.applet.sso.server.service.UserService;
 import org.apache.commons.codec.digest.DigestUtils;
 import org.apache.commons.lang.StringUtils;
@@ -33,6 +34,8 @@ public class LoginController {
     private HttpServletResponse response;
     @Autowired
     private UserService userService;
+    @Autowired
+    private LoginService loginService;
     /**
      * 登录页面
      * @return
@@ -71,7 +74,7 @@ public class LoginController {
         }
 
         //登录->存Redis
-        String sessionId = userService.doLogin(user,backUrl);
+        String sessionId = loginService.doLogin(user,backUrl);
 
         if (StringUtils.isNotEmpty(backUrl)) {
            return "redirect:" + backUrl + "?"+SysConstant.TOKEN_NAME +"=" + sessionId;
@@ -96,7 +99,7 @@ public class LoginController {
     @GetMapping("/check")
     @ResponseBody
     public Result checkToken(String token) {
-        LoginSession isValid = userService.checkToken(token);
+        LoginSession isValid = loginService.checkToken(token);
         return Result.success(isValid);
     }
 }

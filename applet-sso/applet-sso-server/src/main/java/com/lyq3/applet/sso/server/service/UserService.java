@@ -15,16 +15,4 @@ public interface UserService {
      */
     User findByUserName(String username);
 
-    /**
-     * 登录存Redis
-     * @param user
-     */
-    String doLogin(User user,String backUrl);
-
-    /**
-     * 检查Token有效性
-     * @param token
-     * @return
-     */
-    LoginSession checkToken(String token);
 }
