@@ -5,13 +5,6 @@ spring:
   application:
     name: eureka-server
 
-security:
-  basic:
-    enabled: true # 启用身份认证
-  user:
-    name: lyq3 # 定义用户名
-    password: 123456 # 定义密码
-
 eureka:
   instance:
     hostname : localhost

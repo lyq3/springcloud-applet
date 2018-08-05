@@ -9,6 +9,7 @@ import com.lyq3.applet.sso.common.util.LoginUtil;
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
+import org.springframework.core.annotation.Order;
 import org.springframework.stereotype.Component;
 
 import javax.servlet.*;
@@ -39,7 +40,6 @@ public class TokenSsoFilter implements Filter {
         HttpServletResponse res = (HttpServletResponse)servletResponse;
         HttpSession session = req.getSession();
         String url = req.getRequestURL().toString();
-
         //获取Token
         String token = req.getParameter(SysConstant.TOKEN_NAME);
         if (StringUtils.isEmpty(token)){
@@ -49,6 +49,11 @@ public class TokenSsoFilter implements Filter {
         if (StringUtils.isEmpty(token)) {
             res.sendRedirect(SsoServerUrl + PathConstant.LOGIN_URL+"?"+SysConstant.BACKURL+"=" + url);
             return;
+        }
+        //如果已登录就放行
+        if (session.getAttribute(LoginUtil.getLoginKey(token)) != null){
+            filterChain.doFilter(servletRequest, servletResponse);
+            return ;
         }
         //验证Token是否有效
         Result<LoginSession> result = ssoClient.check(token);
@@ -60,9 +65,10 @@ public class TokenSsoFilter implements Filter {
         //有效则登录
         LoginSession loginSession = result.getData();
         session.setAttribute(LoginUtil.getLoginKey(token),loginSession);
-
-        doFilter(servletRequest, servletResponse,filterChain);
-
+        //过期时间，10分钟
+        session.setMaxInactiveInterval(10*60);
+        filterChain.doFilter(servletRequest, servletResponse);
+        return;
 
     }
 

@@ -1,11 +1,11 @@
 package com.lyq3.applet.sso.server.controller;
 
-import com.lyq3.applet.common.exception.BizException;
 import com.lyq3.applet.common.exception.BizExceptionEnum;
 import com.lyq3.applet.common.pojo.Result;
 import com.lyq3.applet.sso.common.constant.SysConstant;
 import com.lyq3.applet.sso.common.entity.po.User;
 import com.lyq3.applet.sso.common.entity.vo.LoginSession;
+import com.lyq3.applet.sso.common.exception.LoginException;
 import com.lyq3.applet.sso.server.service.LoginService;
 import com.lyq3.applet.sso.server.service.UserService;
 import org.apache.commons.lang3.StringUtils;
@@ -42,7 +42,7 @@ public class LoginController {
      */
     @GetMapping("/page/login")
     public String login (String backUrl) {
-        return "";
+        return "loginTest";
     }
 
     /**
@@ -56,21 +56,21 @@ public class LoginController {
         String backUrl = request.getParameter(SysConstant.BACKURL);
 
         if (StringUtils.isEmpty(username) || StringUtils.isEmpty(password)) {
-            throw new BizException(BizExceptionEnum.LOGIN_USERNAME_ISNULL);
+            throw new LoginException(BizExceptionEnum.LOGIN_USERNAME_ISNULL);
         }
 
         User user = userService.findByUserName(username);
         if (user == null) {
-            throw new BizException(BizExceptionEnum.LOGIN_USER_IS_EXIST);
+            throw new LoginException(BizExceptionEnum.LOGIN_USER_IS_NOT_EXIST);
         }
         //密文
         String secret = DigestUtils.md5DigestAsHex((password + user.getSalt()).getBytes());
         if (!secret.equals(user.getPassword())) {
-            throw new BizException(BizExceptionEnum.LOGIN_PASSWORD_ERROR);
+            throw new LoginException(BizExceptionEnum.LOGIN_PASSWORD_ERROR);
         }
 
         if (user.getLocked() == -1) {
-            throw new BizException(BizExceptionEnum.LOGIN_USER_IS_BLOCK);
+            throw new LoginException(BizExceptionEnum.LOGIN_USER_IS_BLOCKED);
         }
 
         //登录->存Redis

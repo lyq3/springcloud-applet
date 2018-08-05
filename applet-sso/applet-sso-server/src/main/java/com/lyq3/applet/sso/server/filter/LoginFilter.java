@@ -40,7 +40,8 @@ public class LoginFilter implements Filter {
 
         //注销请求、登陆请求、登陆页面放行
         if (PathConstant.LOGOUT_URL.equals(uri) || PathConstant.LOGIN_URL.equals(uri)
-                || PathConstant.DO_LOGIN_URL.equals(uri) || PathConstant.LOGIN_CHECK_URL.equals(uri)) {
+                || PathConstant.DO_LOGIN_URL.equals(uri) || PathConstant.LOGIN_CHECK_URL.equals(uri)||
+                PathConstant.INDEX.equals(uri)) {
             filterChain.doFilter(servletRequest,servletResponse);
             return;
         }
@@ -55,7 +56,6 @@ public class LoginFilter implements Filter {
 
         //其他请求跳转到登录页面
         res.sendRedirect(PathConstant.LOGIN_URL);
-        return;
 
     }
 

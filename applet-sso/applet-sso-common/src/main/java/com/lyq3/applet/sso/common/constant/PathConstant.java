@@ -14,5 +14,7 @@ public class PathConstant {
     public static final String DO_LOGIN_URL = "/sso/login";
     /**token检查地址*/
     public static final String LOGIN_CHECK_URL = "/sso/check";
+    /**首页*/
+    public static final String INDEX = "/";
 
 }

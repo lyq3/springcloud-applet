@@ -9,8 +9,8 @@ public enum  BizExceptionEnum {
     /**登录异常*/
     LOGIN_PASSWORD_ERROR(1001,"账号或密码错误！",null),
     LOGIN_USERNAME_ISNULL(1002,"账号密码不能为空！",null),
-    LOGIN_USER_IS_EXIST(1003,"该账号未注册!",null),
-    LOGIN_USER_IS_BLOCK(1004,"账号被锁定！",null)
+    LOGIN_USER_IS_NOT_EXIST(1003,"该账号未注册!",null),
+    LOGIN_USER_IS_BLOCKED(1004,"账号被锁定！",null)
     ;
 
     private int code;

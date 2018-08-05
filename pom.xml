@@ -58,11 +58,6 @@
 
     <!--公共依赖-->
     <dependencies>
-        <!--注册中心-->
-        <dependency>
-            <groupId>org.springframework.cloud</groupId>
-            <artifactId>spring-cloud-starter-eureka</artifactId>
-        </dependency>
         <!--eureka客户端-->
         <dependency>
             <groupId>org.springframework.cloud</groupId>
@@ -77,6 +72,11 @@
         <dependency>
             <groupId>org.springframework.cloud</groupId>
             <artifactId>spring-cloud-starter-openfeign</artifactId>
+        </dependency>
+        <!--web支持-->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-web</artifactId>
         </dependency>
         <!--配置文件处理器-->
         <dependency>

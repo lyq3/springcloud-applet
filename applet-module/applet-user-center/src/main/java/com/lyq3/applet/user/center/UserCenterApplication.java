@@ -16,7 +16,7 @@ import org.springframework.context.annotation.ComponentScan;
 @SpringBootApplication
 @EnableDiscoveryClient
 @EnableFeignClients(basePackages = "com.lyq3.applet")
-@MapperScan("com.lyq3.applet.shopping.cart.mapper**")
+@MapperScan("com.lyq3.applet.user.center.mapper**")
 @ComponentScan("com.lyq3.applet")
 public class UserCenterApplication {
     public static void main(String[] args) {
