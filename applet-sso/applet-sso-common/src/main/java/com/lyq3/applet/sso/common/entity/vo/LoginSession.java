@@ -17,4 +17,6 @@ public class LoginSession implements Serializable {
     private User user;
     /**登录时的回调地址*/
     private String backUrl;
+    /**注册子系统的URL（用于注销登录）*/
+    private String registerService;
 }

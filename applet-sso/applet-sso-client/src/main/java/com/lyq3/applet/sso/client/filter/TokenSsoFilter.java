@@ -67,8 +67,8 @@ public class TokenSsoFilter implements Filter {
         //有效则登录当前子系统
         LoginSession loginSession = result.getData();
         session.setAttribute(LoginUtil.getLoginKey(token),loginSession);
-        //过期时间，10分钟（子系统过期时间一定比认证中心短）
-        session.setMaxInactiveInterval(10);
+        //过期时间，2分钟（子系统过期时间一定比认证中心短）
+        session.setMaxInactiveInterval(2*60);
         //cookie续期
         if (tokenCookie == null) {
             tokenCookie = new Cookie(SysConstant.TOKEN_NAME,token);
