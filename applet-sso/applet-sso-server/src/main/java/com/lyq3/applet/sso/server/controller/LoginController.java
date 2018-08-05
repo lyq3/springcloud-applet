@@ -8,10 +8,10 @@ import com.lyq3.applet.sso.common.entity.po.User;
 import com.lyq3.applet.sso.common.entity.vo.LoginSession;
 import com.lyq3.applet.sso.server.service.LoginService;
 import com.lyq3.applet.sso.server.service.UserService;
-import org.apache.commons.codec.digest.DigestUtils;
-import org.apache.commons.lang.StringUtils;
+import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.util.DigestUtils;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -64,7 +64,7 @@ public class LoginController {
             throw new BizException(BizExceptionEnum.LOGIN_USER_IS_EXIST);
         }
         //密文
-        String secret = DigestUtils.md5Hex(password + user.getSalt());
+        String secret = DigestUtils.md5DigestAsHex((password + user.getSalt()).getBytes());
         if (!secret.equals(user.getPassword())) {
             throw new BizException(BizExceptionEnum.LOGIN_PASSWORD_ERROR);
         }

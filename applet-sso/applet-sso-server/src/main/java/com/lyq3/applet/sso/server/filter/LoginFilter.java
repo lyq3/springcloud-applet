@@ -3,7 +3,7 @@ package com.lyq3.applet.sso.server.filter;
 import com.lyq3.applet.sso.common.constant.PathConstant;
 import com.lyq3.applet.sso.common.constant.SysConstant;
 import com.lyq3.applet.sso.common.util.LoginUtil;
-import org.apache.commons.lang.StringUtils;
+import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.stereotype.Component;

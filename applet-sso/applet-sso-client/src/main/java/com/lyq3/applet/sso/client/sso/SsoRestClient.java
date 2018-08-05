@@ -2,7 +2,7 @@ package com.lyq3.applet.sso.client.sso;
 
 import com.lyq3.applet.common.pojo.Result;
 import com.lyq3.applet.sso.common.entity.vo.LoginSession;
-import org.springframework.cloud.netflix.feign.FeignClient;
+import org.springframework.cloud.openfeign.FeignClient;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
