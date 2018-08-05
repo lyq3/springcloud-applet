@@ -40,6 +40,8 @@ public class LoginServiceImpl implements LoginService {
         String key = LoginUtil.getLoginKey(token);
         Object obj = redisTemplate.opsForValue().get(key);
         if (obj != null) {
+            //续期
+            redisTemplate.expire(key, 30, TimeUnit.MINUTES);
             return (LoginSession)obj;
         }
 
