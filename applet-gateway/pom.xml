@@ -18,7 +18,7 @@
         <!--zuul网关-->
         <dependency>
             <groupId>org.springframework.cloud</groupId>
-            <artifactId>spring-cloud-starter-zuul</artifactId>
+            <artifactId>spring-cloud-starter-netflix-zuul</artifactId>
         </dependency>
         <!--zuul限流-->
         <dependency>
@@ -27,10 +27,10 @@
             <version>1.5.0.RELEASE</version>
         </dependency>
         <!--oauth2.0-->
-        <dependency>
+       <!-- <dependency>
             <groupId>org.springframework.cloud</groupId>
             <artifactId>spring-cloud-starter-oauth2</artifactId>
-        </dependency>
+        </dependency>-->
         <!--feign-->
         <dependency>
             <groupId>org.springframework.cloud</groupId>
@@ -46,6 +46,11 @@
         <dependency>
             <groupId>org.springframework.cloud</groupId>
             <artifactId>spring-cloud-starter-zipkin</artifactId>
+        </dependency>
+        <!--eureka-->
+        <dependency>
+            <groupId>org.springframework.cloud</groupId>
+            <artifactId>spring-cloud-starter-eureka</artifactId>
         </dependency>
     </dependencies>
 
