@@ -15,12 +15,6 @@
         <dependency>
             <groupId>com.lyq3.applet</groupId>
             <artifactId>applet-common</artifactId>
-            <version>1.0-SNAPSHOT</version>
-        </dependency>
-        <!--sso-client-->
-        <dependency>
-            <groupId>com.lyq3.applet</groupId>
-            <artifactId>applet-sso-client</artifactId>
             <version>${applet.version}</version>
         </dependency>
     </dependencies>

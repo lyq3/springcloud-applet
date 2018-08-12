@@ -26,7 +26,6 @@ import javax.servlet.http.HttpServletResponse;
  * @description 登录控制器
  */
 @Controller
-@RequestMapping("/sso")
 public class LoginController {
     @Autowired
     private HttpServletRequest request;
