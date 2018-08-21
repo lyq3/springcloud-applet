@@ -16,7 +16,7 @@ import java.io.IOException;
 /**
  * @author 卡卢比
  * @createTime 2018年07月23日 20:15
- * 
+ *
  * @description 单点登录Server端拦截Filter
  */
 @Component
@@ -25,7 +25,6 @@ public class LoginFilter implements Filter {
     private RedisTemplate redisTemplate;
     @Override
     public void init(FilterConfig filterConfig) throws ServletException {
-
     }
 
     @Override
