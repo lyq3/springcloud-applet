@@ -12,6 +12,7 @@
         <module>applet-pay</module>
         <module>applet-user-center</module>
         <module>applet-shopping-cart</module>
+        <module>applet-bbs</module>
     </modules>
 
     <parent>
